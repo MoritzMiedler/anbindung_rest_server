@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-card class="ma-5 d-flex flex-column justify-end" style="width:500px">
+  <div class="d-flex justify-center">
+    <v-card class="ma-5 d-flex flex-column justify-end " style="width:500px">
       <v-img :src="filterCar.image"></v-img>
       <v-simple-table>
         <thead>
@@ -21,11 +21,18 @@
         </tbody>
       </v-simple-table>
       <p class="mx-5">{{ filterCar.description }}</p>
+      <div class="d-flex mx-5 mb-3">
+        <v-btn class=" purple darken 2 white--text" to="/">Go back</v-btn>
+        <v-spacer></v-spacer>
+        <v-btn class=" red darken 2 white--text" @click="buyCar">Order</v-btn>
+      </div>
     </v-card>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {};
@@ -42,6 +49,17 @@ export default {
   computed: {
     filterCar() {
       return this.cars.find(el => el.id == this.id);
+    }
+  },
+  methods: {
+    async buyCar(event) {
+      event.title += " RESERVED!";
+      await axios({
+        method: "PATCH",
+        url: `http://127.0.0.1:3000/cars/${event.id}`,
+        "content-type": "application/json",
+        data: event
+      });
     }
   }
 };
