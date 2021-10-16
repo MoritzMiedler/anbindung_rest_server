@@ -5,7 +5,10 @@
     <div class="pa-3">
       <span class="text-h5">{{ cardata.title }}</span>
       <br />
-      Owner: <span class="font-weight-bold">{{ cardata.owner.firstName }} {{ cardata.owner.lastName }}</span>
+      Owner:
+      <span class="font-weight-bold"
+        >{{ cardata.owner.firstName }} {{ cardata.owner.lastName }}</span
+      >
       <br />
       Year: <span class="font-weight-bold">{{ cardata.yearOfMake }}</span>
       <br />
@@ -25,14 +28,14 @@ export default {
   props: {
     cardata: {
       type: Array,
-      default: () => {},
-    },
+      default: () => {}
+    }
   },
   methods: {
     buttonClick() {
-      this.$emit('buyCar', this.cardata);
-    },
-  },
+      this.$emit("buyCar", this.cardata);
+    }
+  }
 };
 </script>
 

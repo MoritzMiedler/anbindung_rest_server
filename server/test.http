@@ -1,0 +1,30 @@
+GET http://127.0.0.1:3000/cars
+
+###
+
+PATCH http://127.0.0.1:3000/cars/2
+Content-Type: application/json
+
+{
+  "status": "sold"
+}
+###
+
+DELETE  http://127.0.0.1:3000/cars/23432
+###
+
+POST  http://127.0.0.1:3000/cars
+Content-Type: application/json
+
+{
+    "title": "Auto! Also Blech, mit Metall, also viel Metall",
+    "status": "available",
+    "price": "420.69 $",
+    "image": "http://localhost:3000/images/car10.png",
+    "miles": 177013,
+    "yearOfMake": 2000,
+    "owner": {
+      "firstName": "Christian",
+      "lastName": "Snitchhofer"
+    },
+    "description": "AUTO AUTO AUTO AUTO AUTO AUTO AUTO AUTO AUTO AUTO AUTO"}

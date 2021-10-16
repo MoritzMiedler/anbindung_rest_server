@@ -1,21 +1,26 @@
 <template>
   <v-app>
     <LogoBar></LogoBar>
-    <v-main>
-      <CarCards></CarCards>
-    </v-main>
+    <CarCards> </CarCards>
+    <div>
+      <router-view></router-view>
+    </div>
   </v-app>
 </template>
 
 <script>
-import CarCards from '@/views/CarCards.vue';
-import LogoBar from '@/views/LogoBar.vue';
+import LogoBar from "@/components/LogoBar.vue";
+import CarCards from "@/components/CarCards.vue";
+
 export default {
-  name: 'App',
-  data: () => ({}),
+  name: "App",
   components: {
-    CarCards,
     LogoBar,
+    CarCards
   },
+
+  data: () => ({
+    //
+  })
 };
 </script>
