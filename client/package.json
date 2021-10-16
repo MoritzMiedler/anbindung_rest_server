@@ -46,7 +46,9 @@
       "quotes": "off",
       "comma-dangle": "off",
       "no-param-reassign": "off",
-      "import/extensions": "off"
+      "import/extensions": "off",
+      "arrow-parens": "off",
+      "eqeqeq": "off"
     }
   },
   "browserslist": [

@@ -18,7 +18,7 @@
       <br />
       {{ cardata.description }}
       <br />
-      <v-btn class="red darken-3 mt-2 white--text" @click="buttonClick()">Buy Car</v-btn>
+      <v-btn class="purple darken-3 mt-2 white--text" :to="'/details/' + cardata.id">Details</v-btn>
     </div>
   </v-card>
 </template>
@@ -27,13 +27,8 @@
 export default {
   props: {
     cardata: {
-      type: Array,
+      type: Object,
       default: () => {}
-    }
-  },
-  methods: {
-    buttonClick() {
-      this.$emit("buyCar", this.cardata);
     }
   }
 };

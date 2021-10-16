@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <LogoBar></LogoBar>
+    <LogoBar v-if="false"></LogoBar>
 
     <div>
       <router-view :cars="cardata"></router-view>
