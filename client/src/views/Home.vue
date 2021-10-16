@@ -1,9 +1,17 @@
-<template> <div></div> </template>
+<template>
+  <div>
+    <CarCards></CarCards>
+  </div>
+</template>
 
 <script>
-export default {
-  name: "Home",
+import CarCards from "@/components/CarCards.vue";
 
-  components: {}
+export default {
+  components: {
+    CarCards
+  }
 };
 </script>
+
+<style lang="css" scoped></style>
