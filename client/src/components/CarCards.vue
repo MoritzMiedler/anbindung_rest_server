@@ -16,9 +16,12 @@ import CarCard from "@/components/CarCard.vue";
 
 export default {
   data() {
-    return {
-      cardata: []
-    };
+    return {};
+  },
+  props: {
+    cardata: {
+      type: Array
+    }
   },
   components: {
     CarCard

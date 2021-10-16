@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CarCards></CarCards>
+    <CarCards :cardata="cars"></CarCards>
   </div>
 </template>
 
@@ -10,6 +10,11 @@ import CarCards from "@/components/CarCards.vue";
 export default {
   components: {
     CarCards
+  },
+  props: {
+    cars: {
+      type: Array
+    }
   }
 };
 </script>

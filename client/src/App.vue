@@ -3,7 +3,7 @@
     <LogoBar></LogoBar>
 
     <div>
-      <router-view></router-view>
+      <router-view :cars="cardata"></router-view>
     </div>
   </v-app>
 </template>
@@ -38,7 +38,7 @@ export default {
   },
 
   data: () => ({
-    //
+    cardata: []
   })
 };
 </script>
