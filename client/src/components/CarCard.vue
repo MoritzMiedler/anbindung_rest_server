@@ -3,7 +3,9 @@
     <v-img :src="cardata.image"></v-img>
 
     <div class="pa-3">
-      <span class="text-h5">{{ cardata.title }}</span>
+      <span class="text-h5"
+        >{{ cardata.title }}<span v-if="cardata.status == 'sold'">*RESERVED*</span></span
+      >
       <br />
       Owner:
       <span class="font-weight-bold"
@@ -14,11 +16,17 @@
       <br />
       Miles: <span class="font-weight-bold">{{ cardata.miles }} </span>
       <br />
-      Price: <span class="font-weight-bold"> {{ cardata.price }} </span>
+      Price:
+      <span class="font-weight-bold" v-if="cardata.status != 'sold'"> {{ cardata.price }} </span>
+      <span v-if="cardata.status == 'sold'" class="font-weight-bold">n/a</span>
       <br />
-      {{ cardata.description }}
-      <br />
-      <v-btn class="purple darken-3 mt-2 white--text" :to="'/details/' + cardata.id">Details</v-btn>
+
+      <v-btn
+        class="purple darken-3 mt-2 white--text"
+        :to="'/details/' + cardata.id"
+        v-if="cardata.status != 'sold'"
+        >Details</v-btn
+      >
     </div>
   </v-card>
 </template>

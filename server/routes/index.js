@@ -14,13 +14,11 @@ router.get(
 );
 router.patch(
   '/cars/:id',
-  asyncHandler(async (req, res) =>
-    res.status(200).json(changeStatus(Number(req.params.id), req.body.status)),
-  ),
+  asyncHandler(async (req, res) => res.status(200).json(changeStatus(req.params.id, req.body.status))),
 );
 router.delete(
   '/cars/:id',
-  asyncHandler(async (req, res) => res.status(200).json(delCar(Number(req.params.id)))),
+  asyncHandler(async (req, res) => res.status(200).json(delCar(req.params.id))),
 );
 router.post(
   '/cars',

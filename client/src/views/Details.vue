@@ -2,6 +2,9 @@
   <div class="d-flex justify-center">
     <v-card class="ma-5 d-flex flex-column justify-end " style="width:500px">
       <v-img :src="filterCar.image"></v-img>
+      <div class="text-h4 my-2 d-flex justify-center">
+        {{ filterCar.title }} <span v-if="filterCar.status == 'sold'">*RESERVED*</span>
+      </div>
       <v-simple-table>
         <thead>
           <tr>
@@ -24,7 +27,9 @@
       <div class="d-flex mx-5 mb-3">
         <v-btn class=" purple darken 2 white--text" to="/">Go back</v-btn>
         <v-spacer></v-spacer>
-        <v-btn class=" red darken 2 white--text" @click="buyCar">Order</v-btn>
+        <v-btn class=" red darken 2 white--text" @click="buyCar" v-if="filterCar.status != 'sold'"
+          >Order</v-btn
+        >
       </div>
     </v-card>
   </div>
@@ -56,10 +61,11 @@ export default {
       event.title += " RESERVED!";
       await axios({
         method: "PATCH",
-        url: `http://127.0.0.1:3000/cars/${event.id}`,
+        url: `http://127.0.0.1:3000/cars/${this.id}`,
         "content-type": "application/json",
-        data: event
+        data: { status: "sold" }
       });
+      this.$router.go();
     }
   }
 };

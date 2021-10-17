@@ -5,12 +5,14 @@ function getCars() {
 }
 
 function changeStatus(id, status) {
-  cars[cars.indexOf(cars.find((el) => el.id === id))].status = status;
-  return cars[cars.indexOf(cars.find((el) => el.id === id))];
+  console.log(id);
+  console.log(status);
+  cars[cars.indexOf(cars.find((el) => el.id == id))].status = status;
+  return cars[cars.indexOf(cars.find((el) => el.id == id))];
 }
 
 function delCar(id) {
-  cars = cars.filter((el) => el.id !== id);
+  cars = cars.filter((el) => el.id != id);
   return cars;
 }
 
